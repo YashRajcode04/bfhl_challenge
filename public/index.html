@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BFHL Hierarchy Processor — Parse node relationships and visualise tree structures" />
+  <title>BFHL Hierarchy Processor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="app">
+    <header class="header">
+      <h1>BFHL Processor</h1>
+      <p class="tagline">Parse node relationships &amp; build tree structures</p>
+    </header>
+
+    <!-- Input -->
+    <section class="card" id="input-section">
+      <h2 class="card-title">Input</h2>
+      <p class="card-desc">Enter edges separated by commas <code>A-&gt;B, B-&gt;C</code> or paste a JSON array.</p>
+      <textarea id="dataInput" rows="4" spellcheck="false"
+        placeholder="e.g. A->B, A->C, B->D"></textarea>
+      <div class="actions">
+        <button id="submitBtn" class="btn btn-primary">
+          <span class="btn-text">Process</span>
+          <span class="btn-loader"></span>
+        </button>
+        <button id="clearBtn" class="btn">Clear</button>
+        <button id="exampleBtn" class="btn">Load Example</button>
+      </div>
+      <div id="errorBanner" class="error-banner hidden" role="alert"></div>
+    </section>
+
+    <!-- Results -->
+    <section id="results" class="hidden">
+      <div class="card">
+        <h2 class="card-title">Identity</h2>
+        <div class="identity-grid">
+          <div><span class="id-label">User ID</span><br/><span class="id-value" id="rUserId"></span></div>
+          <div><span class="id-label">Email</span><br/><span class="id-value" id="rEmail"></span></div>
+          <div><span class="id-label">Roll No.</span><br/><span class="id-value" id="rRoll"></span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title">Summary</h2>
+        <div class="summary-grid">
+          <div class="stat-box stat-trees"><span class="stat-num" id="sTrees">0</span><span class="stat-label">Trees</span></div>
+          <div class="stat-box stat-cycles"><span class="stat-num" id="sCycles">0</span><span class="stat-label">Cycles</span></div>
+          <div class="stat-box stat-largest"><span class="stat-num" id="sLargest">-</span><span class="stat-label">Largest Root</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title">Hierarchies</h2>
+        <div id="hierarchies"></div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h2 class="card-title">Invalid Entries</h2>
+          <div id="invalidList" class="tag-list"><span class="empty-state">None</span></div>
+        </div>
+        <div class="card">
+          <h2 class="card-title">Duplicate Edges</h2>
+          <div id="dupList" class="tag-list"><span class="empty-state">None</span></div>
+        </div>
+      </div>
+
+      <details class="card raw-card">
+        <summary>Raw JSON Response</summary>
+        <pre id="rawJson" class="raw-json"></pre>
+      </details>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
