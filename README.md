@@ -1,57 +1,55 @@
-# BFHL Hierarchy Processor - SRM Full Stack Challenge
+# BFHL Hierarchy Processor
 
-A complete Full Stack solution for parsing hierarchical node relationships, building tree structures, and detecting cycles. Built for the SRM Full Stack Engineering Challenge.
+This is a full-stack solution for the SRM Full Stack Engineering Challenge. It parses hierarchical node relationships, builds tree structures, and detects cycles.
 
-## 🚀 Live Demo
-**[Insert Your Vercel URL Here]** *(e.g., https://bfhl-challenge-yzpz.vercel.app)*
+## Live Demo
+[Insert Vercel URL Here]
 
-## 🛠️ Tech Stack
-This project strictly follows the preferred Node.js / JavaScript stack without unnecessary heavy frameworks:
-*   **Backend:** Node.js, Express.js
-*   **Frontend:** Plain HTML, CSS, Vanilla JavaScript
-*   **Deployment:** Vercel (using Vercel Serverless Functions)
+## Tech Stack
+- Backend: Node.js, Express.js
+- Frontend: HTML, CSS, Vanilla JavaScript
+- Deployment: Vercel (Serverless Functions)
 
-## 🌟 Features
-*   **Tree Construction:** Parses edges (e.g., `A->B`) into hierarchical JSON tree structures.
-*   **Cycle Detection:** Automatically detects cyclic graphs (e.g., `A->B, B->C, C->A`) and flags them without infinite loops.
-*   **Multi-Parent Handling:** Safely handles cases where a node has multiple parents (discarding subsequent parent connections).
-*   **Minimal & Responsive UI:** Clean, lightweight frontend to test the API with real-time tree visualizations.
-*   **Robust Validation:** Catches and logs invalid inputs and duplicate edges.
+## Features
+- Parses edge inputs (e.g., `A->B`) into JSON tree structures.
+- Detects cyclic graphs and flags them.
+- Handles multi-parent scenarios by discarding subsequent connections.
+- Minimal frontend to interact with the API.
+- Validates inputs and catches duplicate edges.
 
-## ⚙️ Running Locally
+## Setup Instructions
 
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/YashRajcode04/bfhl_challenge.git
-    cd bfhl_challenge
-    ```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/YashRajcode04/bfhl_challenge.git
+   cd bfhl_challenge
+   ```
 
-2.  **Install dependencies**
-    ```bash
-    npm install
-    ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-3.  **Start the local Express server**
-    ```bash
-    npm start
-    ```
+3. Start the server:
+   ```bash
+   npm start
+   ```
 
-4.  **Open in Browser**
-    Navigate to `http://localhost:3000` to interact with the UI.
+4. Open `http://localhost:3000` in your browser.
 
-## 📡 API Specification
+## API Documentation
 
 **Endpoint:** `POST /bfhl`
 **Content-Type:** `application/json`
 
-### Request Body
+### Example Request
 ```json
 { 
   "data": ["A->B", "A->C", "B->D"] 
 }
 ```
 
-### Response
+### Example Response
 ```json
 {
   "user_id": "yashraj_04092004",
@@ -74,18 +72,9 @@ This project strictly follows the preferred Node.js / JavaScript stack without u
 }
 ```
 
-## 📂 Project Structure
-```text
-bfhl_challenge/
-├── api/
-│   └── bfhl.js            # Vercel serverless function entrypoint
-├── lib/
-│   └── processor.js       # Core logic for tree parsing & validation
-├── public/
-│   ├── index.html         # Frontend UI
-│   ├── script.js          # Frontend logic & API fetching
-│   └── style.css          # UI styling
-├── server.js              # Express server for local development
-├── vercel.json            # Deployment routing configuration
-└── package.json           # Dependencies and scripts
-```
+## Project Structure
+- `api/bfhl.js`: Vercel serverless function entrypoint.
+- `lib/processor.js`: Core algorithm for tree parsing.
+- `public/`: Frontend files (HTML/CSS/JS).
+- `server.js`: Express server for local development.
+- `vercel.json`: Deployment configuration.
